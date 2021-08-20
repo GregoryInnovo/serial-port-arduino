@@ -1,18 +1,19 @@
 var SerialPort = require("serialport");
 
+// Here you change the COM that you work with
 var arduinoCOMPort = "COM4";
 
-var arduinoSerialPort = new SerialPort(arduinoCOMPort, {  
-  baudRate: 9600
+// Arduino configurations
+var arduinoSerialPort = new SerialPort(arduinoCOMPort, {
+  baudRate: 9600,
 });
 
-arduinoSerialPort.on('open',function() {
-  console.log('Serial Port ' + arduinoCOMPort + ' is opened.');
+// Show a message when the Arduino open the port
+arduinoSerialPort.on("open", function () {
+  console.log("Serial Port " + arduinoCOMPort + " is opened.");
 });
 
-arduinoSerialPort.on('data', (data) => {
+// Waits for the serial data
+arduinoSerialPort.on("data", (data) => {
   console.log(data.toString());
-    // io.emit('arduino:data', {
-    //   value: data.toString()
-    // });
 });
