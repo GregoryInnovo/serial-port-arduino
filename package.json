@@ -1,0 +1,20 @@
+{
+  "name": "serial-port-arduino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GregoryInnovo/serial-port-arduino.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GregoryInnovo/serial-port-arduino/issues"
+  },
+  "homepage": "https://github.com/GregoryInnovo/serial-port-arduino#readme"
+}
