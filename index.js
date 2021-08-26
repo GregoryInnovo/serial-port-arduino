@@ -1,4 +1,5 @@
 var SerialPort = require("serialport");
+const Readline = require("@serialport/parser-readline");
 
 // Here you change the COM that you work with
 var arduinoCOMPort = "COM4";
@@ -7,13 +8,16 @@ var arduinoCOMPort = "COM4";
 var arduinoSerialPort = new SerialPort(arduinoCOMPort, {
   baudRate: 9600,
 });
+const parser = arduinoSerialPort.pipe(new Readline({ delimiter: "\n" }));
 
 // Show a message when the Arduino open the port
 arduinoSerialPort.on("open", function () {
   console.log("Serial Port " + arduinoCOMPort + " is opened.");
 });
 
-// Waits for the serial data
-arduinoSerialPort.on("data", (data) => {
-  console.log(data.toString());
+parser.on("data", (data) => {
+  const jsonData = data.toString()
+
+  console.log(jsonData);
+  
 });
