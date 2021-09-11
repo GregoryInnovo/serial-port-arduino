@@ -1,4 +1,6 @@
 # serial-port-arduino
+Install dependencies:
+### `npm install`
 
-* npm install
-* npm start
+Run the project:
+### `npm start`
