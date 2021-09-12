@@ -1,7 +1,7 @@
 # serial-port-arduino
 
 Install dependencies:
-npm install
+### `npm install`
 
 Run the project:
-npm start
+### `npm start`
