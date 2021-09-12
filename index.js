@@ -16,22 +16,13 @@ arduinoSerialPort.on("open", function () {
   console.log("Serial Port " + arduinoCOMPort + " is opened.");
 });
 
+// It called when arduino do a serial print
 parser.on("data", (data) => {
   const jsonData = data.toString();
 
+  // See jsonData
   console.log(jsonData);
 
   // Here this class POST the data from jsonData
   postData.instance.PostData(jsonData)
 });
-
-
-// parser.close(() => {
-//   var today = new Date();
-//   var dd = String(today.getDate()).padStart(2, '0');
-//   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-//   var yyyy = today.getFullYear();
-
-//   today = mm + '/' + dd + '/' + yyyy;
-//   console.log(today);
-// })
