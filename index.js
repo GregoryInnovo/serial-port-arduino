@@ -1,5 +1,6 @@
 var SerialPort = require("serialport");
 const Readline = require("@serialport/parser-readline");
+const postData = require('./postData');
 
 // Here you change the COM that you work with
 var arduinoCOMPort = "COM4";
@@ -16,8 +17,21 @@ arduinoSerialPort.on("open", function () {
 });
 
 parser.on("data", (data) => {
-  const jsonData = data.toString()
+  const jsonData = data.toString();
 
   console.log(jsonData);
-  
+
+  // Here this class POST the data from jsonData
+  postData.instance.PostData(jsonData)
 });
+
+
+// parser.close(() => {
+//   var today = new Date();
+//   var dd = String(today.getDate()).padStart(2, '0');
+//   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+//   var yyyy = today.getFullYear();
+
+//   today = mm + '/' + dd + '/' + yyyy;
+//   console.log(today);
+// })
