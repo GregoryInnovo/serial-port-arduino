@@ -15,9 +15,11 @@ arduinoSerialPort.on("open", function () {
   console.log("Serial Port " + arduinoCOMPort + " is opened.");
 });
 
+// It called when arduino do a serial print
 parser.on("data", (data) => {
   const jsonData = data.toString()
-
+  
+  // See jsonData
   console.log(jsonData);
   
 });
